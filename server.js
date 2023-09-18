@@ -2,7 +2,8 @@ import { MongoClient as Mongodb } from "mongodb";
 import express, { urlencoded } from "express";
 import cors from "cors";
 
-const connString = "mongodb+srv://bhanupratap04123:ohTeMbMetsHhHYly@cluster0.eth6qf3.mongodb.net/?retryWrites=true&w=majority";
+const connString = "mongodb://127.0.0.1:27017";
+const url = "mongodb+srv://bhanupratap04123:ohTeMbMetsHhHYly@cluster0.eth6qf3.mongodb.net/?retryWrites=true&w=majority";
 
 const app = express();
 
@@ -10,7 +11,7 @@ app.use(cors());
 app.use(urlencoded({extended:true}));
 app.use(express.json());
 
-app.get("/users", (req, res) => {
+app.get(url/users, (req, res) => {
 
     Mongodb.connect(connString).then(clientObject => {
 
@@ -24,7 +25,7 @@ app.get("/users", (req, res) => {
 
 
 
-app.get("/signin", (req, res) => {
+app.get(url/signin, (req, res) => {
 
     Mongodb.connect(connString).then(clientObject => {
 
@@ -37,7 +38,7 @@ app.get("/signin", (req, res) => {
 })
 
 
-app.post("/signup", async(req, res) => {
+app.post(url/signup , async(req, res) => {
     
     var data = {
         UserId : req.body.UserId,
