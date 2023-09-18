@@ -11,7 +11,7 @@ app.use(cors());
 app.use(urlencoded({extended:true}));
 app.use(express.json());
 
-app.get(url/users, (req, res) => {
+app.get(url, (req, res) => {
 
     Mongodb.connect(connString).then(clientObject => {
 
@@ -25,7 +25,7 @@ app.get(url/users, (req, res) => {
 
 
 
-app.get(url/signin, (req, res) => {
+app.get(url, (req, res) => {
 
     Mongodb.connect(connString).then(clientObject => {
 
@@ -38,7 +38,7 @@ app.get(url/signin, (req, res) => {
 })
 
 
-app.post(url/signup , async(req, res) => {
+app.post(url , async(req, res) => {
     
     var data = {
         UserId : req.body.UserId,
