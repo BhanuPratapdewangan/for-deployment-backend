@@ -1,8 +1,8 @@
 import { MongoClient as Mongodb } from "mongodb";
-import express, { urlencoded } from 'express';
-import cors from 'cors';
+import express, { urlencoded } from "express";
+import cors from "cors";
 
-const connString = 'mongodb://127.0.0.1:27017';
+const connString = "mongodb://127.0.0.1:27017";
 
 const app = express();
 
@@ -10,7 +10,7 @@ app.use(cors());
 app.use(urlencoded({extended:true}));
 app.use(express.json());
 
-app.get('/users', (req, res) => {
+app.get("/users", (req, res) => {
 
     Mongodb.connect(connString).then(clientObject => {
 
@@ -24,7 +24,7 @@ app.get('/users', (req, res) => {
 
 
 
-app.get('/signin', (req, res) => {
+app.get("/signin", (req, res) => {
 
     Mongodb.connect(connString).then(clientObject => {
 
@@ -37,7 +37,7 @@ app.get('/signin', (req, res) => {
 })
 
 
-app.post('/signup', async(req, res) => {
+app.post("/signup", async(req, res) => {
     
     var data = {
         UserId : req.body.UserId,
@@ -59,7 +59,7 @@ app.post('/signup', async(req, res) => {
 })
 
 app.connect((req, res) => {
-    res.writeHead(200, {'Content-Type':'application/json'});
+    res.writeHead(200, {"Content-Type':'application/json"});
     res.end();
 })
 
