@@ -2,7 +2,7 @@ import { MongoClient as Mongodb } from "mongodb";
 import express, { urlencoded } from "express";
 import cors from "cors";
 
-const connString = "mongodb://127.0.0.1:27017/demo";
+const connString = "mongodb+srv://bhanupratap04123:ohTeMbMetsHhHYly@cluster0.eth6qf3.mongodb.net/?retryWrites=true&w=majority";
 
 const app = express();
 
