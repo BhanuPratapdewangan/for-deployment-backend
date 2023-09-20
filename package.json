@@ -5,14 +5,16 @@
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.18.2",
-    "mongodb": "^6.1.0"
+    "mongodb": "^6.1.0",
+    "react-scripts": "^2.1.3"
   },
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npm install"
   },
   "description": "This is backend api",
   "main": "server.js",
-  "devDependencies": {},
   "author": "Bhanu Pratap",
   "license": "ISC"
 }
