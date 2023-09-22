@@ -4,7 +4,7 @@ import cors from "cors";
 
 const connString = "mongodb+srv://bhanupratap04123:XJpEjooT2G10zAth@cluster0.n0j3tzk.mongodb.net/?retryWrites=true&w=majority";
 
-const port = process.env.PORT || 4400;
+const port = process.env.PORT || 3800;
 
 const app = express();
 
