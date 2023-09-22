@@ -4,13 +4,12 @@ import cors from "cors";
 
 const connString = "mongodb+srv://bhanupratap04123:XJpEjooT2G10zAth@cluster0.n0j3tzk.mongodb.net/?retryWrites=true&w=majority";
 
+const app = express();
 const port = process.env.PORT || 3800;
 
-const app = express();
-
-app.use(cors());
 app.use(urlencoded({extended:true}));
 app.use(express.json());
+app.use(cors());
 
 app.get('/users', (req, res) => {
 
@@ -23,7 +22,6 @@ app.get('/users', (req, res) => {
         })
     })
 })
-
 
 
 app.get('/signin', (req, res) => {
@@ -39,7 +37,7 @@ app.get('/signin', (req, res) => {
 })
 
 
-app.post('/signup' , async(req, res) => {
+app.post('/signup' , (req, res) => {
     
     var data = {
         UserId : req.body.UserId,
@@ -66,5 +64,5 @@ app.connect((req, res) => {
 });
 
 app.listen(port, () => {
-    console.log(`Server started on port ${port}`);
+    console.log(`Server is running on port ${port}`);
 })
