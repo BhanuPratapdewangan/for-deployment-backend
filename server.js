@@ -119,10 +119,12 @@ app.get('/signin', (req, res) => {
 
         if (data) {
             res.send(data);
-            res.end();
         } else {
-            res.send("Data not found");
+            res.send("result : Data not found");
         }
+    } else 
+    {
+        res.send("result : Data not found");
     }
 });
 
