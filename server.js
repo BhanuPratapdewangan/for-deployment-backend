@@ -86,7 +86,7 @@ app.use(cors());
 
 app.get('/users', async (req, res) => {
 
-    let data = await userModel.find();
+    let data = await userModel.find({});
     if (data) {
         res.send(data);
     } else {
