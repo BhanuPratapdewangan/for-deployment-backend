@@ -84,7 +84,7 @@ app.use(express.json());
 app.use(cors());
 
 
-app.get('/users', async(req, res) => {
+app.get('/users', async (req, res) => {
 
     let data = await userModel.find({});
     if (data) {
@@ -96,7 +96,7 @@ app.get('/users', async(req, res) => {
 })
 
 //SignUp Route
-app.post('/signup', async(req, res) => {
+app.post('/signup', async (req, res) => {
     try {
         let data = new userModel(req.body);
         data = await data.save();
@@ -111,20 +111,23 @@ app.post('/signup', async(req, res) => {
 });
 
 //SignIn Route
-app.get('/signin', (req, res) => {
+app.get('/signin', async(req, res) => {
+    try {
+        if (req.body.UserId && req.body.Password) {
 
-    if (req.body.UserId && req.body.Password) {
+            let data = await userModel.findOne(req.body).select('-Password');
 
-        let data = userModel.findOne(req.body).select('-Password');
-
-        if (data) {
-            res.send(data);
+            if (data) {
+                res.send(data);
+            } else {
+                res.send("result : Data not found");
+            }
         } else {
             res.send("result : Data not found");
         }
-    } else 
-    {
-        res.send("result : Data not found");
+    } catch(error) {
+        console.error(error);
+        res.status(500).json({error : 'Server error'});
     }
 });
 
