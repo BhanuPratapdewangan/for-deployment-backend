@@ -38,7 +38,7 @@
 
 
 // app.post('/signup' , (req, res) => {
-    
+
 //     var data = {
 //         UserId : req.body.UserId,
 //         UserName : req.body.UserName,
@@ -84,11 +84,10 @@ app.use(express.json());
 app.use(cors());
 
 
-app.get('/users', async(req,res) => {
+app.get('/users', async (req, res) => {
 
     let data = await userModel.find();
-    if(data)
-    {
+    if (data) {
         res.send(data);
     } else {
         res.send("Data not found");
@@ -96,28 +95,28 @@ app.get('/users', async(req,res) => {
 })
 
 //SignUp Route
-app.post('/signup', async(req,res) => {
-    try{
+app.get('/signup', async (req, res) => {
+    try {
         let data = new userModel(req.body);
-    data = await data.save();
-    data = data.toObject();
-    delete data.Password;
-    res.send(data);
-    res.end();
-    } catch(error) {
+        data = await data.save();
+        data = data.toObject();
+        delete data.Password;
+        res.send(data);
+        res.end();
+    } catch (error) {
         console.error(error);
-        res.status(500).json({error : 'Internal server error'});
+        res.status(500).json({ error: 'Internal server error' });
     }
 });
 
 //SignIn Route
-app.post('/signin' ,(req, res) => {
+app.post('/signin', (req, res) => {
 
-    if(req.body.UserId && req.body.Password) {
+    if (req.body.UserId && req.body.Password) {
 
         let data = userModel.findOne(req.body).select('-Password');
 
-        if(data){
+        if (data) {
             res.send(data);
             res.end();
         } else {
