@@ -84,18 +84,19 @@ app.use(express.json());
 app.use(cors());
 
 
-app.get('/users', async (req, res) => {
+app.get('/users', async(req, res) => {
 
     let data = await userModel.find({});
     if (data) {
         res.send(data);
+        res.end();
     } else {
         res.send("Data not found");
     }
 })
 
 //SignUp Route
-app.get('/signup', async (req, res) => {
+app.post('/signup', async(req, res) => {
     try {
         let data = new userModel(req.body);
         data = await data.save();
@@ -110,7 +111,7 @@ app.get('/signup', async (req, res) => {
 });
 
 //SignIn Route
-app.post('/signin', (req, res) => {
+app.get('/signin', (req, res) => {
 
     if (req.body.UserId && req.body.Password) {
 
