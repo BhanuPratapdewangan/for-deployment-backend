@@ -2,7 +2,7 @@ import { MongoClient as Mongodb } from "mongodb";
 import express, { urlencoded } from "express";
 import cors from "cors";
 
-const connString = "mongodb+srv://bhanupratap04123:rieocQN2ePiBBJ5u@cluster0.n0j3tzk.mongodb.net/?retryWrites=true&w=majority";
+const connString = "mongodb+srv://bhanupratap04123:x4R6GBn5upv6KG5f@cluster0.n0j3tzk.mongodb.net/?retryWrites=true&w=majority";
 
 const app = express();
 const port = process.env.PORT || 3800;
