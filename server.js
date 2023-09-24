@@ -5,7 +5,7 @@ import cors from "cors";
 const connString = "mongodb+srv://bhanupratap04123:x4R6GBn5upv6KG5f@cluster0.n0j3tzk.mongodb.net/?retryWrites=true&w=majority";
 
 const app = express();
-const port = process.env.PORT || 3800;
+const port = process.env.PORT || 3600;
 
 app.use(urlencoded({extended:true}));
 app.use(express.json());
