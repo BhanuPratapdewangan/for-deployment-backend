@@ -111,7 +111,7 @@ app.post('/signup', async (req, res) => {
 });
 
 //SignIn Route
-app.get('/signin', async(req, res) => {
+app.get('/signin', async (req, res) => {
     try {
         if (req.body.UserId && req.body.Password) {
 
